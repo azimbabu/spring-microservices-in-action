@@ -1,0 +1,6 @@
+version: '2'
+services:
+  simpleservice:
+    image: azimbabu/simple-service:chapter1
+    ports:
+    - "8080:8080"

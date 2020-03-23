@@ -1,0 +1,35 @@
+server:
+  port: 5555
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,refresh,routes
+
+zuul:
+#  ignored-services: '*'
+  prefix: /api
+  routes:
+    spring-data-rest-react:
+      path: /spring-data-rest-react/**
+#      serviceId: spring-data-rest-react
+      url: http://localhost:8085
+#    organization-service: /organization/**
+#    licensing-service: /licensing/**
+#ribbon:
+#  eureka:
+#    enabled: false
+
+#spring-data-rest-react:
+#  ribbon:
+#    listOfServers: http://localhost:8085

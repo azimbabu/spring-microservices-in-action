@@ -1,0 +1,20 @@
+version: '2'
+services:
+  database:
+    extends:
+      file: ../common/docker-compose.yml
+      service: database
+    environment:
+      POSTGRES_USER: "postgres_dev"
+      POSTGRES_PASSWORD: "p0stgr@s_dev"
+      POSTGRES_DB: "eagle_eye_dev"
+  config-service:
+    extends:
+      file: ../common/docker-compose.yml
+      service: config-service
+  licensing-service:
+    extends:
+      file: ../common/docker-compose.yml
+      service: licensing-service
+    environment:
+      PROFILE: "dev"
