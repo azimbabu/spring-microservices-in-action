@@ -65,7 +65,9 @@ public class LicenseService {
         @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5")
       })
   public List<License> getLicensesByOrganizationId(String organizationId) {
-    log.debug("LicenseService.getLicensesByOrganizationId Correlation ID: {}", UserContextHolder.getUserContext().getCorrelationId());
+    log.debug(
+        "LicenseService.getLicensesByOrganizationId Correlation ID: {}",
+        UserContextHolder.getUserContext().getCorrelationId());
     randomlyRunLong();
     return licenseRepository.findByOrganizationId(organizationId);
   }

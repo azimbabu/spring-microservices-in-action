@@ -28,7 +28,9 @@ public class LicenseController {
 
   @GetMapping
   public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
-    log.debug("LicenseServiceController.getLicenses Correlation ID: {}", UserContextHolder.getUserContext().getCorrelationId());
+    log.debug(
+        "LicenseServiceController.getLicenses Correlation ID: {}",
+        UserContextHolder.getUserContext().getCorrelationId());
     return licenseService.getLicensesByOrganizationId(organizationId);
   }
 

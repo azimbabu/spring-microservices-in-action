@@ -1,4 +1,4 @@
-package com.azimbabu.license.utils;
+package com.azimbabu.organization.utils;
 
 import static org.springframework.util.Assert.notNull;
 
@@ -7,12 +7,10 @@ public class UserContextHolder {
 
   public static final UserContext getUserContext() {
     UserContext userContext = userContextThreadLocal.get();
-
     if (userContext == null) {
       userContext = createEmptyContext();
       userContextThreadLocal.set(userContext);
     }
-
     return userContextThreadLocal.get();
   }
 

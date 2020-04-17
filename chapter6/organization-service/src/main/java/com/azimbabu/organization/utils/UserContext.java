@@ -1,4 +1,4 @@
-package com.azimbabu.license.utils;
+package com.azimbabu.organization.utils;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;

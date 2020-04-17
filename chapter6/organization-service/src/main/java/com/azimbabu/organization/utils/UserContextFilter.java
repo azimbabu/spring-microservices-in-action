@@ -1,4 +1,4 @@
-package com.azimbabu.license.utils;
+package com.azimbabu.organization.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,7 @@ public class UserContextFilter implements Filter {
     UserContextHolder.getUserContext().setOrganizationId(request.getHeader(UserContext.ORG_ID));
 
     log.debug(
-        "License Service Incoming Correlation Id: {}",
+        "Organization Service Incoming Correlation Id: {}",
         UserContextHolder.getUserContext().getCorrelationId());
 
     filterChain.doFilter(request, servletResponse);

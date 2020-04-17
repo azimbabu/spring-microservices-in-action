@@ -16,20 +16,36 @@ management:
       exposure:
         include: health,info,env,refresh,routes
 
-zuul:
-#  ignored-services: '*'
-  prefix: /api
-  routes:
-    spring-data-rest-react:
-      path: /spring-data-rest-react/**
-#      serviceId: spring-data-rest-react
-      url: http://localhost:8085
+## Mapping routes manually
+#zuul:
+##  ignored-services: 'organization-service' # exclude the Eureka service ID organization-service from the automated mappings done by Zuul.
+#  ignored-services: '*' # exclude the registration of all eureka service ID based routes.
+#  prefix: /api  # All defined services will be prefixed with /api
+#  routes:
 #    organization-service: /organization/**
 #    licensing-service: /licensing/**
+
+## Manual mapping of routes using static urls
+#zuul:
+#  prefix: /api
+#  routes:
+#    license-static:
+#      path: /license-static/**
+#      url: http://license-static:8085
+
+## Manual mapping of routes using static urls, mapping license static service statically to multiple routes
+#zuul:
+##  ignored-services: '*'
+#  prefix: /api
+#  routes:
+#    license-static:
+#      path: /license-static/**
+#      serviceId: license-static
+#
 #ribbon:
 #  eureka:
-#    enabled: false
-
-#spring-data-rest-react:
+#    enabled: true
+#
+#license-static:
 #  ribbon:
-#    listOfServers: http://localhost:8085
+#    listOfServers: http://license-static:8085, http://license-static:8086, http://license-static:8087

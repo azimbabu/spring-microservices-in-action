@@ -1,6 +1,12 @@
 server:
   port: 8081
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,refresh
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -10,7 +16,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
-spring:
-  h2:
-    console:
-      enabled: true
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.azimbabu: DEBUG

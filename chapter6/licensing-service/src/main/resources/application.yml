@@ -17,11 +17,6 @@ eureka:
 example:
   property: HelloWorld
 
-spring:
-  h2:
-    console:
-      enabled: true
-
 logging:
   level:
     com.netflix: WARN

@@ -1,0 +1,8 @@
+zuul.prefix: /api
+zuul.ignored-services: '*'
+zuul.routes.organization-service: /organization/**
+zuul.routes.licensing-service: /licensing/**
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+#hystrix.command.licensing-service.execution.isolation.thread.timeoutInMilliseconds: 7000
+#licensing-service.ribbon.ReadTimeout: 7000
+signing.key: "345345fsdfsf5345"
